@@ -30,16 +30,18 @@ const options = {
 function teller(v) {
   fetch("https://apivogelspotten.onrender.com/vogelspotten/", options)
     .then((r) => r.json())
-    .then((data) => {
+    .then(
+      (data = {
         id: v.value,
-        
-    });
+        aantalkeerGespot: count.value,
+      })
+    );
   console.log(v);
 }
 
 vogelSelect.addEventListener("change", (e) => {
   //   console.log(e.target.value);
-    teller(e.target.value);
+  teller(e.target.value);
 });
 
 plusBtn.addEventListener("click", (e) => {
@@ -47,6 +49,7 @@ plusBtn.addEventListener("click", (e) => {
   //   console.log(count.value);
   count.innerHTML = count.value;
   //   console.log(count.innerHTML);
+  teller(vogelSelect.value);
 });
 count.value = 0;
 vogelDropdown();
