@@ -6,6 +6,7 @@ const count = document.querySelector("#count");
 
 const plusBtn = document.querySelector("#plusBtn");
 
+// ok
 function vogelDropdown() {
   fetch("https://apivogelspotten.onrender.com/vogelspotten/")
     .then((r) => r.json())
@@ -19,6 +20,8 @@ function vogelDropdown() {
     );
 }
 
+// waarom maak je options aan buiten je function?
+// een patch is aanpassen, maar je geeft geen data mee?
 const options = {
   method: "PATCH",
   headers: {
@@ -27,6 +30,7 @@ const options = {
   body: JSON.stringify(),
 };
 
+// wat moet deze functie doen?
 function teller(v) {
   fetch("https://apivogelspotten.onrender.com/vogelspotten/", options)
     .then((r) => r.json())
